@@ -111,9 +111,6 @@ Citizen.CreateThread(function()
         BeginTextCommandSetBlipName('STRING')
         AddTextComponentString("Banque")
         EndTextCommandSetBlipName(blip)
-		exports['blip_info']:SetBlipInfoTitle(blip, "Banque", false)
-        exports['blip_info']:AddBlipInfoHeader(blip, "")
-    	exports['blip_info']:AddBlipInfoText(blip, "Venez consultez votre compte en banque !") 
     end
 end)
 
