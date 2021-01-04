@@ -151,16 +151,18 @@ Citizen.CreateThread(function()
             RageUI.Button("Déposer", nil, {RightLabel = "→→→"},true, function(Hovered, Active, Selected)
             if (Selected) then   
                 saisiedepot()
+                verifsolde()
             end
             end)
 
             RageUI.Button("Retirer", nil, {RightLabel = "→→→"},true, function(Hovered, Active, Selected)
             if (Selected) then   
                 saisieretrait()
+                verifsolde()
             end
             end)
 
-            RageUI.Button("---", nil, {RightLabel = nil},true, function(Hovered, Active, Selected)
+            RageUI.Button("                       ↓ ~b~Compte en banque ~w~↓", nil, {RightLabel = nil},true, function(Hovered, Active, Selected)
             if (Selected) then   
                 
             end
@@ -249,26 +251,6 @@ Citizen.CreateThread(function()
     
                 local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
                 local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, position[k].x, position[k].y, position[k].z)
-    
-                if dist <= 1.0 then
-                    ESX.ShowHelpNotification("Appuyez sur [~b~E~w~] pour accéder à la banque")
-                    if IsControlJustPressed(1,51) then
-                    	verifsolde()
-                        RageUI.Visible(RMenu:Get('hs0_bank', 'main'), not RageUI.Visible(RMenu:Get('hs0_bank', 'main')))
-                    end   
-                end
-            end
-        end
-    end)
-
-Citizen.CreateThread(function()
-        while true do
-            Citizen.Wait(0)
-    
-            for k in pairs(posatm) do
-    
-                local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
-                local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, posatm[k].x, posatm[k].y, posatm[k].z)
     
                 if dist <= 1.0 then
                     ESX.ShowHelpNotification("Appuyez sur [~b~E~w~] pour accéder à la banque")
